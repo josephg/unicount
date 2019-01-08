@@ -6,6 +6,10 @@
   "version": "1.0.0",
   "description": "unicode position conversion",
   "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "prepare": "tsc"
+  },
   "repository": "https://github.com/josephg/unicount",
   "author": "Joseph Gentle <me@josephg.com>",
   "license": "ISC"
