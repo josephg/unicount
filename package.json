@@ -9,7 +9,7 @@
     "prepare": "tsc"
   },
   "devDependencies": {
-    "typescript": "^3.2.2"
+    "typescript": "^3.9.2"
   },
   "keywords": [
     "unicode"
