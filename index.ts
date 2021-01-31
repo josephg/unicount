@@ -21,3 +21,5 @@ export const uniToStrPos = (s: string, uniOffset: number) => {
   }
   return pos
 }
+
+export const uniCount = (s: string) => strPosToUni(s)

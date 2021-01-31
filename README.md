@@ -2,9 +2,21 @@
 
 This is a super simple no-deps conversion tool to convert between unicode codepoint offsets and JS string offsets.
 
-This module exposes 2 methods:
+This module exposes 3 methods:
 
-#### strPosToUni(s: string, strOffset?: number)
+#### uniCount(s: string) => number
+
+Count the number of unicode codepoints inside a string. This is the equivalent of `string.length`, but this method returns a string's unicode length instead of its UCS2 length. (Who would ever want that?)
+
+```javascript
+const {uniCount} = require('unicount')
+
+console.log('💃123'.length) // 5! Oh no!
+console.log(uniCount('💃123')) // 4. Much better.
+```
+
+
+#### strPosToUni(s: string, strOffset?: number) => number
 
 Convert from a JS string position to a unicode position.
 
@@ -16,10 +28,10 @@ const {strPosToUni} = require('unicount')
 console.log(strPosToUni('💃123', 2)) // 1
 ```
 
-The offset is optional. If it is missing, it defaults to the length of the string (so bare `strPosToUni(str)` returns the number of unicode code points in the given string).
+The offset is optional. If missing, this method has the same behaviour as `uniCount(str)`, for backwards compatibility.
 
 
-#### uniToStrPos(s: string, uniOffset: number)
+#### uniToStrPos(s: string, uniOffset: number) => number
 
 Convert a unicode codepoint position to a string offset position
 
@@ -30,8 +42,6 @@ const {uniToStrPos} = require('unicount')
 
 uniToStrPos.uniToStrPos('💃123', 1) // 2
 ```
-
-Unlike `strPosToUni`, the second offset argument is not optional. Call `s.length` to discover the JS string length.
 
 
 # LICENSE
